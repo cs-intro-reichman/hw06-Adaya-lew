@@ -143,11 +143,13 @@ public class Runigram {
 	 * The image is scaled (resized) to have the given width and height.
 	 */
 	public static Color[][] scaled(Color[][] image, int width, int height) {
+		int height1 = image.length;
+		int width1 = image[0].length;
 		Color[][] scaled = new Color [height][width];
 		for(int i = 0; i< height; i++){
 			for(int j = 0; j< width; j++){
-				int newheight = (int)(i * image.length/height);
-				int newwidth = (int)(i * image[0].length/width);
+				int newheight = i * height1/height;
+				int newwidth = i * width1/width;
 				scaled[i][j] = image[newheight][newwidth];
 			}
 		}
@@ -204,8 +206,8 @@ public class Runigram {
 				morph = blend(source, target, alpha);
 				display(morph);
 				StdDraw.pause(500);
+		}
 	}
-}
 	
 	/** Creates a canvas for the given image. */
 	public static void setCanvas(Color[][] image) {
