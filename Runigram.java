@@ -68,10 +68,10 @@ public class Runigram {
 	// we can apply the function and then use this function to print the resulting image.
 	private static void print(Color[][] image) {
 	    int rows = image.length;
-        int columns = image[0].length;
+        int cols = image[0].length;
 	    for (int i = 0; i < rows; i++)
 		     {
-		       	for (int j = 0; j < columns; j++)
+		       	for (int j = 0; j < cols; j++)
 		         {
 		         	print(image[i][j]);
 		         }
@@ -84,11 +84,11 @@ public class Runigram {
 	 */
 	public static Color[][] flippedHorizontally(Color[][] image) {
 		int rows = image.length;
-        int columns = image[0].length;
-		int lastColsIndex = columns - 1;
-		Color[][] flippedHorizontally = new Color[rows][columns];
+        int cols = image[0].length;
+		int lastColsIndex = cols - 1;
+		Color[][] flippedHorizontally = new Color[rows][cols];
 		for(int i = 0; i < rows; i++){
-			for(int j = 0; j < columns; j++){
+			for(int j = 0; j < cols; j++){
 				flippedHorizontally[i][j] = image[i][lastColsIndex - j];
 			}
 		}
@@ -100,13 +100,13 @@ public class Runigram {
 	 */
 	public static Color[][] flippedVertically(Color[][] image){
 		int rows = image.length;
-        int columns = image[0].length;
+        int cols = image[0].length;
 		int lastRowsIndex = rows - 1;
-		Color[][] flippedVerticall = new Color[rows][columns];
+		Color[][] flippedVerticall = new Color[rows][cols];
 		for (int i = 0; i < rows; i++) {
-    		for (int j = 0; j < columns; j++) {
+    		for (int j = 0; j < cols; j++) {
 
-				flippedVerticall[i][j] = image[lastRowsIndex -i ][j];
+				flippedVerticall[i][j] = image[lastRowsIndex -i][j];
 			}
 		}
 		return flippedVerticall;
@@ -129,10 +129,10 @@ public class Runigram {
 	 */
 	public static Color[][] grayScaled(Color[][] image) {
 		int rows = image.length;
-		int columns = image[0].length;
-		Color[][]grey = new Color[rows][columns];
+		int cols = image[0].length;
+		Color[][] grey = new Color[rows][cols];
 		for (int i = 0; i < rows; i++) {
-    		for (int j = 0; j < columns; j++) {
+    		for (int j = 0; j < cols; j++) {
         		grey[i][j] = luminance(image[i][j]);
 		    }
 		}
@@ -148,8 +148,8 @@ public class Runigram {
 		Color[][] scaled = new Color [height][width];
 		for(int i = 0; i< height; i++){
 			for(int j = 0; j< width; j++){
-				int newheight = i * height1/height;
-				int newwidth = i * width1/width;
+				int newheight = i * height1 / height;
+				int newwidth = i * width1 / width;
 				scaled [i][j] = image [newheight][newwidth];
 			}
 		}
@@ -179,10 +179,10 @@ public class Runigram {
 	 */
 	public static Color[][] blend(Color[][] image1, Color[][] image2, double alpha) {
 		int rows = image1.length;
-		int columns = image1[0].length;
-		Color[][]twoblend = new Color[rows][columns];
+		int cols = image1[0].length;
+		Color[][]twoblend = new Color[rows][cols];
 		for(int i = 0; i< rows; i++){
-			for(int j = 0; j< columns; j++){
+			for(int j = 0; j< cols; j++){
 				twoblend[i][j] = blend(image1[i][j],image2[i][j], alpha);
 			}
 		}
